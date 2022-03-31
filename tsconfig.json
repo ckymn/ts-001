@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+      "lib": ["ESNext","DOM","DOM.Iterable"],// es6 ve sonrasi 
+      "target": "ES2020",
+      "strict": true, 
+      "module":"EsNext",// node.js te calisinca,
+      "allowSyntheticDefaultImports": true,
+      // "moduleResolution": "Node", // node.js modulleri icin
+      "esModuleInterop": false, // { <package util nam }
+      "outDir": "./dist",// javacripte donusen kodlari cikaracagi yer
+      "rootDir": "./src",// kaynak kodlari javascripte donus.,
+      // "noUnusedParameters": true,
+      // "noUnusedLocals": true
+  },
+  "include": [
+    "src/**/*" // src'nin icindeki her dosya veya klasor[klasorun icindeki hersey]
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+} 
