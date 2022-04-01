@@ -4,7 +4,7 @@
     2. Node.js
     3. Docker
         -Dockerfile
-            *
+            * Dockerfile içerisinde hangi Image'ın kullanılacağı, hangi dosyaları içereceği ve hangi uygulamanın hangi parametrelerle çalışacağı yazılır.
         -dockerignore
             * dockerfile dosyasinda COPY metodu calistigi zaman node_modules alanini cagirmamasini soyluyoruz
         -docker-compose.dev.yml
