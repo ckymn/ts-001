@@ -3,8 +3,8 @@ import express, { Request, Response } from 'express';
 const app = express();
 
 app.get("/", (req: Request, res: Response) => {
-    return res.json({
-        status: "Success"
+    return res.status(200).send({
+        msg: "Hello Every body"
     })
 })
 

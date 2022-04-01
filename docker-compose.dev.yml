@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  api: # container name
+    build: # hangi Dockerfile'a gore build edilecegini soyleriz
+      context: . # what is the path the Dockerfile
+      target: development # call development stage dockerfile 
+    volumes: #Host üzerindeki bir klasörün containera mount edilmesi.
+      - ./:/usr/src/app # tum kodlarin saklanacagi yer 
+      - /usr/src/app/node_modules # provide oweritten node_modules on folder
+    ports:
+      - 3000:4000 # left side => our localhost workport / right side => our container workport
+    command: npm run dev

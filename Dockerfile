@@ -1,14 +1,13 @@
 # DEVELOPEMENT 
 
-# kullanilacak node versiyonu
-FROM node:16-alpine as developement
+FROM node:16-alpine as development
 # docker icin alan
 WORKDIR /usr/src/app
 # package dosyalarini hepsini . (/usr/src/app) olusturulan workdir'e kaydedilecek 
 COPY package*.json .
 # development dependency indirme
 RUN npm install
-# tum director'u al ve docker container alanina kaydet ! .dockerignore for node_modules
+# kod dizinini workdir alanina kopyala ! .dockerignore for node_modules
 COPY . .
 # typescript build 
 RUN npm run build
@@ -25,8 +24,8 @@ WORKDIR /usr/src/app
 # 
 COPY package*.json .
 # sadece dependency alani dahil olucak devDependecy alani olmayacak
-RUN npm install --only=production
-# 
+RUN npm ci --only=production
+# development asamasinda kullandigim kodu ile calis ve /usr/src/app/dist alanindaki herseyi ./dist alanina kopyala
 COPY --from=development /usr/src/app/dist ./dist
 # container calistirmak
 CMD ["node", "dist/index.js"]
